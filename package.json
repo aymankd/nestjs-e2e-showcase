@@ -18,6 +18,9 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
+    "test:e2e:vitest": "vitest run test/e2e",
+    "test:e2e:vitest:watch": "vitest test/e2e",
+    "test:e2e:vitest:ui": "vitest --ui test/e2e",
     "docker-compose:up": "docker-compose up -d",
     "docker-compose:down": "docker-compose down",
     "db:generate": "drizzle-kit generate",
@@ -50,6 +53,7 @@
     "@types/node": "^22.10.7",
     "@types/pg": "^8.15.6",
     "@types/supertest": "^6.0.2",
+    "@vitest/ui": "^4.0.6",
     "drizzle-kit": "^0.31.6",
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^10.0.1",
@@ -64,7 +68,10 @@
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.20.0"
+    "typescript-eslint": "^8.20.0",
+    "unplugin-swc": "^1.5.8",
+    "vite": "^7.1.12",
+    "vitest": "^4.0.6"
   },
   "jest": {
     "moduleFileExtensions": [

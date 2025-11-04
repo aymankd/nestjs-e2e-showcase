@@ -7,6 +7,8 @@ import {
   Param,
   Body,
   ParseIntPipe,
+  HttpCode,
+  HttpStatus,
 } from '@nestjs/common';
 import { SchoolService } from '../services/school.service';
 import { CreateSchoolDto, UpdateSchoolDto } from '../dto/school.dto';
@@ -27,6 +29,7 @@ export class SchoolController {
   }
 
   @Post()
+  @HttpCode(HttpStatus.CREATED)
   async create(@Body() createSchoolDto: CreateSchoolDto): Promise<School> {
     return this.schoolService.create(createSchoolDto);
   }
@@ -40,6 +43,7 @@ export class SchoolController {
   }
 
   @Delete(':id')
+  @HttpCode(HttpStatus.NO_CONTENT)
   async remove(@Param('id', ParseIntPipe) id: number): Promise<void> {
     return this.schoolService.delete(id);
   }
