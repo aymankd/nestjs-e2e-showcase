@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: nestjs-postgres
+    restart: always
+    environment:
+      POSTGRES_DB: nestjs_db
+      POSTGRES_USER: nestjs_user
+      POSTGRES_PASSWORD: nestjs_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
